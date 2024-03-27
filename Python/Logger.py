@@ -1,5 +1,4 @@
-from Note_Create import*
-from User_Interface import*
+from Note_Create import *
 
 def add_note():
     note = create_note()
@@ -53,14 +52,6 @@ def edit_note():
         if len(data) == 0:
             print('Нет заметок для редактирования.')
             flag = False
-        print('Выберите заметку для редактирования: \n'
-              'Если вам нужно посмотртеть номер необходимой заметки, выйдете в основное меню и просмотрите все заметки\n'
-              'Вы хотите выйти в основное меню?')
-        command = input('Введите y / n: \n')
-        while command not in ('y', 'n'):
-            command = input('Введите y / n: \n')
-            if command == 'y':
-                user_menu()
                     
         size_list = len(notes_list)
         id_list = [str(i+1) for i in range(size_list)]
@@ -86,7 +77,6 @@ def edit_note():
             print(f'Заметка {id_for_edit} успешно изменена.\n'
                   'Переход в главное меню.')
             flag = False
-        user_menu()
 
 def delete_note():
     with open("notebook.csv", "r+", encoding="UTF-8") as file:
@@ -100,7 +90,6 @@ def delete_note():
 
         if len(data) == 0:
             print('Нет заметок для удаления.')
-            user_menu()
             flag = False            
         note_list_size = len(notes_list)
         print(f"Заметки, доступные для удаления:\n\n{data}")
@@ -121,4 +110,3 @@ def delete_note():
         with open("notebook.csv", "w", encoding="UTF-8") as file:
             file.write(text)
             flag = False
-            user_menu()
