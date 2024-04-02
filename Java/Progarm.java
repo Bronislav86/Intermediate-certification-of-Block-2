@@ -11,8 +11,13 @@ class Progarm {
         data.remove("");
         
         WordsWorker wd = new WordsWorker();
-        System.out.printf("Файл input.txt содержит %d слов(а).\n", wd.wordsCount(data));
-        System.out.printf("Самое длинное слово в фале: %s\n", wd.mostLongWord(data));
+        data = wd.deleteSpaces(data);
+        System.out.println();
+        System.out.printf("Мы взяли с собой на пикник %d фруктов и овощей.\n", wd.wordsCount(data));
+        System.out.println();
+        System.out.printf("Самое длинное название фрукта(овоща): %s\n", wd.mostLongWord(data));
+        System.out.println();
+        wd.inventoryFruits(data);
     }
 
 }
